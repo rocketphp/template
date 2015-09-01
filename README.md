@@ -1,6 +1,7 @@
 # template
 
 [![Build Status](https://travis-ci.org/rocketphp/template.svg?branch=master)](https://travis-ci.org/rocketphp/template)
+[![Dependency Status](https://www.versioneye.com/user/projects/55e5e96b8c0f62001c000446/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55e5e96b8c0f62001c000446)
 
 `RocketPHP\Template` uses static template files. It replaces [@var] tags with PHP variables.
 
