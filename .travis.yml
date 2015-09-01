@@ -1,0 +1,9 @@
+language: php
+
+script: phpunit
+
+install:
+  - composer install
+
+php:
+  - 5.5
