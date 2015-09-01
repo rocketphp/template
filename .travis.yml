@@ -2,8 +2,10 @@ language: php
 
 script: phpunit
 
-install:
+before_install:
   - composer self-update
+
+install:
   - composer install
 
 php:
