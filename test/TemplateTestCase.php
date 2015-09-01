@@ -19,10 +19,41 @@ extends \PHPUnit_Framework_TestCase
 {
     public $file;
 
-    public function badValues()
+    public function badConstructorValues()
     {
         return [
             [''],
+            [null],
+            [-1],
+            [1],
+            [1.5],
+            [true],
+            [false],
+            [array()],
+            [new \stdClass()]
+        ];
+    }
+
+    public function badTemplateValues()
+    {
+        return [
+            [''],
+            ['A template'],
+            [null],
+            [-1],
+            [1],
+            [1.5],
+            [true],
+            [false],
+            [array()],
+            [new \stdClass()]
+        ];
+    }
+
+    public function badSeparatorValues()
+    {
+        return [
+            [null],
             [-1],
             [1],
             [1.5],
