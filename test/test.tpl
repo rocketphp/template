@@ -1,0 +1,1 @@
+<p>Template said "[@myVar]"</p>
