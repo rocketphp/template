@@ -16,5 +16,5 @@ interface TemplateInterface
 {
     public function set($key, $value);
     public function output();
-    public static function merge($templates, $separator = "\n");
+    public static function merge(array $templates, $separator = "\n");
 }
