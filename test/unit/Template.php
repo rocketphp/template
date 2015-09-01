@@ -43,13 +43,13 @@ extends TemplateTestCase
         $this->assertEquals($result, $output);
     }
 
-    public function testOutputReturnsHTML()
+    public function testOutputReturnsHtml()
     { 
         $tpl = new MockTemplate($this->file);  
         $this->assertEquals('<p>Template said "[@myVar]"</p>', $tpl->output());
     }
 
-    public function testOutputReturnsHTMLAfterSet()
+    public function testOutputReturnsHtmlAfterSet()
     { 
         $tpl = new MockTemplate($this->file); 
         $tpl->set('myVar', 'Orange'); 
@@ -61,7 +61,7 @@ extends TemplateTestCase
      * @expectedException        InvalidArgumentException
      * @expectedExceptionMessage Expected string for template file path.
      */
-    public function testConstructorInvalidFile($badValue)
+    public function testConstructorThrowsExceptionIfInvalidFile($badValue)
     {  
         $tpl = new MockTemplate($badValue);
     }
@@ -71,7 +71,7 @@ extends TemplateTestCase
      * @expectedException        InvalidArgumentException
      * @expectedExceptionMessage Expected Template objects.
      */
-    public function testMergeInvalidTemplates($badValue)
+    public function testMergeThrowsExceptionIfInvalidTemplates($badValue)
     {  
         $tpl = new MockTemplate($this->file);
         $templates = [new MockTemplate($this->file), $badValue];
@@ -83,7 +83,7 @@ extends TemplateTestCase
      * @expectedException        InvalidArgumentException
      * @expectedExceptionMessage Expected string for separator.
      */
-    public function testMergeInvalidSeparator($badValue)
+    public function testMergeThrowsExceptionIfInvalidSeparator($badValue)
     {  
         $tpl = new MockTemplate($this->file);
         $templates = [new MockTemplate($this->file), new MockTemplate($this->file)];
@@ -94,7 +94,7 @@ extends TemplateTestCase
      * @expectedException        RuntimeException
      * @expectedExceptionMessage Error loading template file: nofile.tpl.
      */
-    public function testOutputNoTemplateFile()
+    public function testOutputThrowsExceptionIfNoTemplateFile()
     { 
         $tpl = new MockTemplate('nofile.tpl');  
         $tpl->output();
