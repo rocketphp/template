@@ -1,8 +1,18 @@
-<?php namespace RocketPHPTest\Template;
-use RocketPHP\Template\Template;
-/** 
- * Template Test Case
+<?php
+/**
+ * RocketPHP (http://rocketphp.io)
  *
+ * @package   RocketPHP
+ * @link      https://github.com/rocketphp/template
+ * @license   http://opensource.org/licenses/MIT MIT
+ */
+
+namespace RocketPHPTest\Template;
+
+use RocketPHP\Template\Template;
+
+/** 
+ * Test case for Template
  */ 
 abstract class TemplateTestCase
 extends \PHPUnit_Framework_TestCase
