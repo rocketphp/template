@@ -16,9 +16,6 @@
         <testsuite name="template Unit Test Suite">
             <directory suffix=".php">./test/unit/</directory> 
         </testsuite>
-        <testsuite name="template Functional Test Suite">
-            <directory suffix=".php">./test/functional/</directory> 
-        </testsuite>
     </testsuites>
 
     <groups>
@@ -37,6 +34,5 @@
         <const name="PHPUNIT_TESTSUITE" value="true"/>
         <ini name="date.timezone" value="UTC"/>
     </php>
-
 
 </phpunit>
