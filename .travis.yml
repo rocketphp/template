@@ -6,4 +6,5 @@ install:
   - composer install
 
 php:
+  - 5.4
   - 5.5
