@@ -12,5 +12,7 @@ $tpl->set('title', 'My Page Title');
 echo $tpl->output();
 ```
 
+[![Build Status](https://travis-ci.org/rocketphp/template.svg?branch=master)](https://travis-ci.org/rocketphp/template)
+
 - File issues at https://github.com/rocketphp/template/issues
 - Documentation is at http://rocketphp.io/template
