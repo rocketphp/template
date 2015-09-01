@@ -7,7 +7,7 @@ use RocketPHP\Template\Template;
 abstract class TemplateTestCase
 extends \PHPUnit_Framework_TestCase
 {
-    public $file = __DIR__ . DIRECTORY_SEPARATOR . 'test.tpl';
+    public $file;
 
     public function badValues()
     {
@@ -25,6 +25,7 @@ extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
+        $this->file = __DIR__ . DIRECTORY_SEPARATOR . 'test.tpl';
     }
 
     public function tearDown()
