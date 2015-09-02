@@ -1,6 +1,7 @@
 # template
 
 [![Build Status](https://travis-ci.org/rocketphp/template.svg?branch=master)](https://travis-ci.org/rocketphp/template)
+[![Coverage Status](https://coveralls.io/repos/rocketphp/template/badge.svg?branch=develop&service=github)](https://coveralls.io/github/rocketphp/template?branch=develop)
 [![Dependency Status](https://www.versioneye.com/user/projects/55e5e96b8c0f62001c000446/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55e5e96b8c0f62001c000446)
 
 [![Latest Stable Version](https://poser.pugx.org/rocketphp/template/v/stable)](https://packagist.org/packages/rocketphp/template)
