@@ -14,7 +14,7 @@ use RocketPHP\Template\Template;
 /** 
  * Mock Template
  */ 
-class MockTemplate
+class TemplateMock
 extends Template
 {
     public function getProtectedProperty($name)

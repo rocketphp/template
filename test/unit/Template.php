@@ -9,32 +9,32 @@ extends TemplateTestCase
 
     public function testConstructor()
     {
-        $tpl = new MockTemplate($this->file); 
+        $tpl = new TemplateMock($this->file); 
         $this->assertInstanceOf('RocketPHP\\Template\\Template', $tpl);
     }
 
     public function testConstructorSetsFile()
     { 
-        $tpl = new MockTemplate($this->file); 
+        $tpl = new TemplateMock($this->file); 
         $this->assertSame($tpl->getProtectedProperty('_file'), $this->file);
     }
 
     public function testSetSetsTemplateVars()
     { 
-        $tpl = new MockTemplate($this->file); 
+        $tpl = new TemplateMock($this->file); 
         $tpl->set('myVar', 'Blue');
         $this->assertSame($tpl->getProtectedProperty('_vars')['myVar'], 'Blue');
     }
 
     public function testMergeReturnsMergedTemplates()
     { 
-        $tpl = new MockTemplate($this->file);  
+        $tpl = new TemplateMock($this->file);  
         $tpl->set('myVar', 'Paris');
-        $tpl2 = new MockTemplate($this->file);  
+        $tpl2 = new TemplateMock($this->file);  
         $tpl2->set('myVar', 'London');
         $templates = [$tpl, $tpl2];
         $separator = "\n\n";
-        $output = MockTemplate::merge($templates, $separator);
+        $output = TemplateMock::merge($templates, $separator);
 
         $result = '<p>Template said "Paris"</p>';
         $result .= "\n\n";
@@ -45,13 +45,13 @@ extends TemplateTestCase
 
     public function testOutputReturnsHtml()
     { 
-        $tpl = new MockTemplate($this->file);  
+        $tpl = new TemplateMock($this->file);  
         $this->assertEquals('<p>Template said "[@myVar]"</p>', $tpl->output());
     }
 
     public function testOutputReturnsHtmlAfterSet()
     { 
-        $tpl = new MockTemplate($this->file); 
+        $tpl = new TemplateMock($this->file); 
         $tpl->set('myVar', 'Orange'); 
         $this->assertEquals('<p>Template said "Orange"</p>', $tpl->output());
     }
@@ -63,7 +63,7 @@ extends TemplateTestCase
      */
     public function testConstructorThrowsExceptionIfInvalidFile($badValue)
     {  
-        $tpl = new MockTemplate($badValue);
+        $tpl = new TemplateMock($badValue);
     }
 
     /**
@@ -73,8 +73,8 @@ extends TemplateTestCase
      */
     public function testMergeThrowsExceptionIfInvalidTemplates($badValue)
     {  
-        $tpl = new MockTemplate($this->file);
-        $templates = [new MockTemplate($this->file), $badValue];
+        $tpl = new TemplateMock($this->file);
+        $templates = [new TemplateMock($this->file), $badValue];
         $tpl->merge($templates);
     }
 
@@ -85,8 +85,8 @@ extends TemplateTestCase
      */
     public function testMergeThrowsExceptionIfInvalidSeparator($badValue)
     {  
-        $tpl = new MockTemplate($this->file);
-        $templates = [new MockTemplate($this->file), new MockTemplate($this->file)];
+        $tpl = new TemplateMock($this->file);
+        $templates = [new TemplateMock($this->file), new TemplateMock($this->file)];
         $tpl->merge($templates, $badValue);
     }
 
@@ -96,7 +96,7 @@ extends TemplateTestCase
      */
     public function testOutputThrowsExceptionIfNoTemplateFile()
     { 
-        $tpl = new MockTemplate('nofile.tpl');  
+        $tpl = new TemplateMock('nofile.tpl');  
         $tpl->output();
     }
 }

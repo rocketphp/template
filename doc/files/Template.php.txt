@@ -43,7 +43,7 @@ implements TemplateInterface
      */
     public function __construct($file)
     {
-        if(!is_string($file) || $file === '')
+        if(!is_string($file) || $file === "")
             throw new InvalidArgumentException(
                 "Expected string for template file path.", 
                 1
@@ -54,9 +54,8 @@ implements TemplateInterface
     /**
      * Sets a template var
      *
-     * @param string $key   Name
-     * @param string $value Value
-     *
+     * @param  string $key   Name
+     * @param  string $value Value
      * @return void
      */
     public function set($key, $value)
@@ -65,8 +64,36 @@ implements TemplateInterface
     }
     
     /**
-     * Outputs interpreted template content
+     * Merges templates separated by $separator
      *
+     * @param  array  $templates Template objects to merge
+     * @param  string $separator Separator string
+     * @return string
+     */
+    public static function merge(array $templates, $separator = "\n")
+    {
+        $output = "";
+
+        if (!is_string($separator))
+            throw new InvalidArgumentException(
+                "Expected string for separator.", 
+                1
+            );
+            
+        foreach ($templates as $template) {
+            if ($template instanceof TemplateInterface)
+                $output .= $template->output() . $separator;
+            else
+                throw new InvalidArgumentException(
+                    "Expected Template objects.", 
+                    1
+                );
+        }
+        return $output;
+    }
+
+    /**
+     * Outputs interpreted template content
      * @return string
      */
     public function output()
@@ -86,25 +113,4 @@ implements TemplateInterface
 
         return $output;
     }
-    
-    /**
-     * Merges templates separated by $separator
-     *
-     * @param  array  $templates Template objects to merge
-     * @param  string $separator Separator string
-     *
-     * @return string
-     */
-    public static function merge($templates, $separator = "\n")
-    {
-        $output = "";
-        foreach ($templates as $template) {
-            $content = (get_class($template) !== "Template")
-                ? "Error, incorrect type - expected Template."
-                : $template->output();
-            $output .= $content . $separator;
-        }
-        return $output;
-    }
-
 }
